@@ -15,18 +15,18 @@ import pi3d
 BACKGROUND = (0.0, 0.0, 0.0, 1.0)
 
 # Setup display and initialise pi3d and a shader.
-DISPLAY = pi3d.Display.create(background=BACKGROUND, frames_per_second=30)
+DISPLAY = pi3d.Display.create(background=BACKGROUND, frames_per_second=25)
 SHADER = pi3d.Shader('uv_flat')
 
 TEXTURE = pi3d.Texture('textures/space_invaders256x256.png')
-BERRY_COUNT = 25
+BERRY_COUNT = 27
 
 # Setup array of random x,y,z coords and initial rotation
 RASPBERRIES = []
 
 for b in range(BERRY_COUNT):
   # Select size as a random number 0.2 and 2.1.
-  size = random.uniform(0.5, 1.0)
+  size = random.uniform(0.1, 0.9)
   rasp = pi3d.ImageSprite(texture=TEXTURE, shader=SHADER, w=size, h=size)
 
   # distance from the camera.
@@ -57,5 +57,5 @@ while DISPLAY.loop_running():
       DISPLAY.stop()
       break
     elif k == 112:
-      pi3d.screenshot('IvaderRain.jpg')
+      pi3d.screenshot('IvaderRain-2.jpg')
 
